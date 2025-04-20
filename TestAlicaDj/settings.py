@@ -28,7 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    "3d93-150-241-94-154.ngrok-free.app",  # ✅ ← вот этот домен
+    "688f-150-241-94-154.ngrok-free.app",# ✅ ← текущий домен
+    "f7f6-150-241-94-154.ngrok-free.app",
 ]
 
 
@@ -76,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'TestAlicaDj.wsgi.application'
+ASGI_APPLICATION = 'TestAlicaDj.asgi.application'
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
