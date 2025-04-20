@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: alice_chat
+      POSTGRES_USER: skelesheit
+      POSTGRES_PASSWORD: S1234
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://skelesheit:S1234@db:5432/alice_chat
+      - DEBUG=1
+    volumes:
+      - .:/app
+
+volumes:
+  pg_data:
